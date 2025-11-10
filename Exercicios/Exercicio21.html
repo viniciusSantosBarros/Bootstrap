@@ -16,8 +16,8 @@
 
 <body>
 
-    <h1 class="display-3">Endereço</h1>
-
+    <h1 class="display-3 p-5">Endereço</h1>
+<!--
     <main class="container p-5">
         <div class="row mb-3 g-3">
             <div class="col">
@@ -39,7 +39,7 @@
         </div>
 
         <hr>
-
+    
         <div class="row mb-3">
             <label for="" class="col-form-label col-4 text-end">E-mail</label>
             <div class="col-8">
@@ -47,12 +47,15 @@
             </div>
         </div>
         <hr>
-
-        <form>
-            <div class="row mb-3 g-3">
+    -->
+        <form method="post" >
+            <div class="row mb-3 g-3 p-5">
                 <div class="col-7">
                     <label for="logradouro">Logradouro</label>
-                    <input type="text" class="form-control" id="logradouro">
+                    <input type="text" class="form-control is-valid" id="logradouro" required>
+                    <div class="invalid-feedback">Você deve informar o logradouro</div>
+
+                    <div class="valid-feedback">Logradouro informado corretamente</div>
                 </div>
 
                 <div class="col-2">
@@ -82,14 +85,35 @@
 
                 <div class="col-2">
                     <label for="cep">CEP</label>
-                    <input type="text" class="form-control" id="cep">
+                    <input type="text" class="form-control" id="cep" pattern="[0-9] {8}" required>
                 </div>
-
+                
+                <input type="submit" value="Enviar" class="col-2 btn btn-primary">
             </div>
         </form>
 
     </main>
 
+    <!-- <script>
+        
+(function () {
+  'use strict'
+
+  var forms = document.querySelectorAll('.needs-validation')
+
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+    </script> -->
 </body>
 
 </html>
