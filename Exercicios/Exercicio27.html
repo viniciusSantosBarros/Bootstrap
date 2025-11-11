@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous" defer></script>
+    <script src="Aula30.js" de></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Exercicio 27</title>
+
+</head>
+
+<body>
+
+<main class="container my-5">
+
+    <div class="toast">
+        <div class="toast-header">
+            <i class="bi-info-circle me-1"></i>
+            <strong class="me-auto">Informação</strong>
+            <button class="btn-close ms-auto" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body"></div>
+    </div>
+
+</main>
+
+<script>
+    const toastElList = document.querySelectorAll(".toast");
+const toastList = [...toastElList].map((toastEl) => {
+    const toast = new bootstrap.Toast(toastEl, {});
+    //toast.show();
+});
+
+const btnToast = document.getElementById("btnToast");
+btnToast.addEventListener("click", () => {
+    const toast = document.getElementById("toast");
+    const container = document.getElementById("toastContainer");
+    const novoToast = toast.cloneNode(true);
+    novoToast.lastElementChild.innerHTML = "Mensagem em " + Date();
+    container.appendChild(novoToast);
+    const bsToast = new bootstrap.Toast(novoToast, {});
+    bsToast.show();
+});
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+const popoverList = [...popoverTriggerList].map((popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl));
+</script>
+
+</body>
+
+</html>
